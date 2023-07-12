@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:title="explore"
+        android:id="@+id/menu_explore"
+        android:icon="@drawable/baseline_search_24"/>
+
+    <item
+        android:icon="@drawable/baseline_directions_car_24"
+        android:id="@+id/menu_cars"
+        android:title="cars"/>
+
+    <item
+        android:title="trends"
+        android:id="@+id/menu_trends"
+        android:icon="@drawable/baseline_trending_up_24"/>
+
+    <item
+        android:title="profile"
+        android:id="@+id/menu_profile"
+        android:icon="@drawable/_814089_account_user_person_profile_avatar_icon"/>
+
+</menu>

@@ -1,24 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<androidx.drawerlayout.widget.DrawerLayout
+    android:id="@+id/drawerLayoutMain"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBar_main"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
 
-        <androidx.appcompat.widget.Toolbar
-            android:theme="@style/toolbar_theme"
-            android:id="@+id/toolBar_main"
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBar_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolBar_main"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:theme="@style/toolbar_theme"
+                app:titleTextAppearance="@style/toolbar_theme" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <FrameLayout
+            android:id="@+id/frame_main_continer"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="56dp"
+            android:layout_height="match_parent"/>
+        
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            app:menu="@menu/menu_bottom_nav"
+            android:id="@+id/bottom_navigation_Main"
+            android:layout_gravity="bottom"
             android:layout_width="match_parent"
             android:layout_height="56dp"/>
 
-    </com.google.android.material.appbar.AppBarLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        app:menu="@menu/menu_nav_drawer"
+        app:headerLayout="@layout/header_nav_main"
+        android:id="@+id/navigationViewMain"
+        android:layout_gravity="start"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"/>
 
 
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

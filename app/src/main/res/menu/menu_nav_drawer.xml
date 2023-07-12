@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_menu_repairMan"
+        android:title="be a repairman"
+        android:icon="@drawable/ic_repairman"/>
+
+    <item
+        android:id="@+id/nav_menu_carEnthusiast"
+        android:title="car enthusiast"
+        android:icon="@drawable/ic_car_lover"/>
+
+    <item android:title="Contact us">
+
+        <menu>
+
+            <item
+                android:title="website"
+                android:id="@+id/menu_open_web"
+                android:icon="@drawable/ic_web_nav"/>
+
+
+        </menu>
+
+    </item>
+
+</menu>
