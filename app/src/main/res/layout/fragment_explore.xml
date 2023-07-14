@@ -8,6 +8,7 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
+        tools:listitem="@layout/item_explore"
         android:paddingBottom="16dp"
         android:id="@+id/recycle_explore"
         android:layout_width="match_parent"
