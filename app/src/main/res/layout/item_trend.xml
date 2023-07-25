@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginEnd="16dp"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardCornerRadius="8dp"
+    app:strokeWidth="3dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+
+
+        <ImageView
+            android:scaleType="centerCrop"
+            android:id="@+id/img_trend"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ferrari" />
+
+        <TextView
+            android:background="@drawable/trend_numb_shape"
+            android:gravity="center"
+            android:id="@+id/tv_trend_number"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:textColor="?attr/colorPrimary"
+            android:layout_marginStart="24dp"
+            android:layout_marginBottom="32dp"
+            android:text="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:textColor="@color/black_light"
+            android:id="@+id/tv_trend_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/primary_bold"
+            android:text="title"
+            android:textSize="25sp"
+            app:layout_constraintStart_toEndOf="@+id/tv_trend_number"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:textColor="@color/gray_dark"
+            android:id="@+id/tv_trend_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="subtitle \nfelan \n(2017 - 2023)"
+            app:layout_constraintStart_toStartOf="@+id/tv_trend_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_trend_title" />
+
+        <TextView
+            android:textColor="@color/green"
+            android:id="@+id/tv_trend_insight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:text="+250 k"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_trend_subtitle" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
