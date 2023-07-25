@@ -7,37 +7,62 @@
     android:layout_marginStart="16dp"
     android:layout_marginTop="16dp"
     android:layout_marginEnd="16dp"
-    app:cardElevation="1dp"
     android:clickable="true"
     android:focusable="true"
-    app:cardCornerRadius="8dp">
+    app:cardCornerRadius="8dp"
+    app:cardElevation="5dp">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="500dp">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <ImageView
-            android:scaleType="centerCrop"
-            android:src="@drawable/ferrari"
+            android:id="@+id/img_explore"
             android:layout_width="match_parent"
-            android:layout_height="260dp" />
+            android:layout_height="260dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ferrari" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="4dp">
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:id="@+id/tv_exolore_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/primary_bold"
+                android:text="Ferrari"
+                android:textColor="@color/black_light"
+                android:textSize="28sp" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:id="@+id/tv_explore_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="a fast automobile"
+                android:textSize="15sp" />
+
+            <View
+                android:layout_marginTop="16dp"
+                android:background="@color/gray_light"
+                android:layout_width="150dp"
+                android:layout_height="2dp"/>
 
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/tv_explore_full_text"
+                android:lineSpacingExtra="5dp"
+                android:maxLines="6"
+                android:ellipsize="end"
+                android:layout_marginTop="16dp"
+                android:text="@string/ferrari_full_text"
+                android:layout_width="wrap_content"
+                android:textSize="15sp"
+                android:textColor="@color/black_light"
                 android:layout_height="wrap_content" />
 
         </LinearLayout>
