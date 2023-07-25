@@ -8,6 +8,7 @@
 
     <color name="black_light">#1E1E1E</color>
     <color name="gray_light">#DDDDDD</color>
+    <color name="gray_dark">#878585</color>
     <color name="green">#2E7D32</color>
 
 </resources>
