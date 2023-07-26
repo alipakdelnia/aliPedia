@@ -8,7 +8,7 @@ import com.bumptech.glide.Glide
 import com.example.alipedia.data.ItemPost
 import com.example.alipedia.databinding.ItemExploreBinding
 
-class ExploreAdapter(private val data: ArrayList<ItemPost>) :
+class ExploreAdapter(private val data: ArrayList<ItemPost>, private val itemEvent: ItemEvent) :
     RecyclerView.Adapter<ExploreAdapter.ExploreViewHolder>() {
     lateinit var binding: ItemExploreBinding
 
@@ -24,6 +24,8 @@ class ExploreAdapter(private val data: ArrayList<ItemPost>) :
             binding.tvExoloreTitle.text = itemPost.txtTitle
             binding.tvExploreSubtitle.text = itemPost.txtSubtitle
             binding.tvExploreFullText.text = itemPost.txtDetail
+
+            itemEvent.onItemClicked(itemPost)
 
         }
     }

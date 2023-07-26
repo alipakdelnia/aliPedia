@@ -8,7 +8,7 @@ import com.bumptech.glide.Glide
 import com.example.alipedia.data.ItemPost
 import com.example.alipedia.databinding.ItemTrendBinding
 
-class TrendAdapter(private val data: ArrayList<ItemPost>) :
+class TrendAdapter(private val data: ArrayList<ItemPost> , private val itemEvent: ItemEvent) :
     RecyclerView.Adapter<TrendAdapter.ExploreViewHolder>() {
     lateinit var binding: ItemTrendBinding
 
@@ -24,6 +24,8 @@ class TrendAdapter(private val data: ArrayList<ItemPost>) :
             Glide.with(binding.root)
                 .load(itemPost.imgUrl)
                 .into(binding.imgTrend)
+
+            itemEvent.onItemClicked(itemPost)
 
 
         }

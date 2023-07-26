@@ -1,5 +1,6 @@
 package com.example.alipedia.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,12 +8,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.alipedia.MainActivity2
 import com.example.alipedia.adapter.ExploreAdapter
+import com.example.alipedia.adapter.ItemEvent
 import com.example.alipedia.data.ItemPost
 import com.example.alipedia.databinding.FragmentExploreBinding
 
-
-class FragmentExplore : Fragment() {
+const val SEND_DATA_TO_SECOND_ACTIVITY = "sendData"
+class FragmentExplore : Fragment() , ItemEvent{
     lateinit var binding: FragmentExploreBinding
 //    private val ferrariDetail = getString(R.string.ferrari_full_text)
 
@@ -61,12 +64,18 @@ class FragmentExplore : Fragment() {
             )
         )
 
-        val myAdapter = ExploreAdapter(data)
+        val myAdapter = ExploreAdapter(data, this)
 
         binding.recycleExplore.layoutManager =
             LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         binding.recycleExplore.adapter = myAdapter
 
+    }
+
+    override fun onItemClicked(itemPost: ItemPost) {
+        val intent = Intent(activity , MainActivity2::class.java)
+        intent.putExtra( SEND_DATA_TO_SECOND_ACTIVITY , itemPost )
+        startActivity( intent )
     }
 
 }
