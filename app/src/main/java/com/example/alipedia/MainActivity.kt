@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
+import cn.pedant.SweetAlert.SweetAlertDialog
 import com.example.alipedia.databinding.ActivityMainBinding
 import com.example.alipedia.fragments.FragmentCars
 import com.example.alipedia.fragments.FragmentExplore
@@ -13,7 +14,7 @@ import com.example.alipedia.fragments.FragmentProfile
 import com.example.alipedia.fragments.FragmentTrends
 
 class MainActivity : AppCompatActivity() {
-    lateinit var binding : ActivityMainBinding
+    lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -34,12 +35,26 @@ class MainActivity : AppCompatActivity() {
         binding.navigationViewMain.setNavigationItemSelectedListener {
 
 
-            when (it.itemId){
+            when (it.itemId) {
                 R.id.nav_menu_repairMan -> {
-                    Toast.makeText(this, "you are a repair man now", Toast.LENGTH_SHORT).show()
                     binding.drawerLayoutMain.closeDrawer(GravityCompat.START)
+
+                    val dialog = SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
+                    dialog.titleText = "alert"
+                    dialog.confirmText = "confirm"
+                    dialog.cancelText = "cancel"
+                    dialog.contentText = "wanna be a repair man?"
+                    dialog.setConfirmClickListener {
+
+                        Toast.makeText(this, "confirmed", Toast.LENGTH_SHORT).show()
+                        dialog.dismiss()
+                    }
+                    dialog.setCancelClickListener {
+                        dialog.dismiss()
+                    }
+                    dialog.show()
                 }
-                R.id.nav_menu_carEnthusiast ->{
+                R.id.nav_menu_carEnthusiast -> {
                     Toast.makeText(this, "you are a carEnthusiast now", Toast.LENGTH_SHORT).show()
                     binding.drawerLayoutMain.closeDrawer(GravityCompat.START)
                 }
@@ -56,7 +71,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomNavigationMain.setOnItemSelectedListener {
 
-            when (it.itemId){
+            when (it.itemId) {
 
                 R.id.menu_cars -> {
                     replaceFragment(FragmentCars())
@@ -75,17 +90,18 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
-        binding.bottomNavigationMain.setOnItemReselectedListener {  }
+        binding.bottomNavigationMain.setOnItemReselectedListener { }
     }
-    fun replaceFragment(fragment : Fragment){
+
+    fun replaceFragment(fragment: Fragment) {
 
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.frame_main_continer , fragment)
+        transaction.replace(R.id.frame_main_continer, fragment)
         transaction.commit()
 
     }
 
-    fun firstRun (){
+    fun firstRun() {
         replaceFragment(FragmentExplore())
         binding.bottomNavigationMain.selectedItemId = R.id.menu_explore
     }
