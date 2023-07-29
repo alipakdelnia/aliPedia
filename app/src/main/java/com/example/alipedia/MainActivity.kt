@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
                     val dialog = SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
                     dialog.titleText = "alert"
                     dialog.confirmText = "confirm"
-                    dialog.cancelText = "cancel"
+                    dialog.cancelText = "Cancel"
                     dialog.contentText = "wanna be a repair man?"
                     dialog.setConfirmClickListener {
 
