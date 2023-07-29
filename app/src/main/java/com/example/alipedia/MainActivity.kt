@@ -8,10 +8,7 @@ import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.example.alipedia.databinding.ActivityMainBinding
-import com.example.alipedia.fragments.FragmentCars
-import com.example.alipedia.fragments.FragmentExplore
-import com.example.alipedia.fragments.FragmentProfile
-import com.example.alipedia.fragments.FragmentTrends
+import com.example.alipedia.fragments.*
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -19,6 +16,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+//        firstRun()
 
         setSupportActionBar(binding.toolBarMain)
 
@@ -57,6 +56,14 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_menu_carEnthusiast -> {
                     Toast.makeText(this, "you are a carEnthusiast now", Toast.LENGTH_SHORT).show()
                     binding.drawerLayoutMain.closeDrawer(GravityCompat.START)
+
+                    binding.navigationViewMain.setCheckedItem(R.id.nav_menu_carEnthusiast)
+
+                    val transaction = supportFragmentManager.beginTransaction()
+                    transaction.add(R.id.frame_main_continer, FragmentCarLover())
+                    transaction.addToBackStack(null)
+                    transaction.commit()
+
                 }
                 //---------------------------
                 R.id.menu_open_web -> {
@@ -87,6 +94,9 @@ class MainActivity : AppCompatActivity() {
                 }
 
             }
+
+            binding.navigationViewMain.menu.getItem(1).isChecked = false
+
             true
         }
 
@@ -105,4 +115,10 @@ class MainActivity : AppCompatActivity() {
         replaceFragment(FragmentExplore())
         binding.bottomNavigationMain.selectedItemId = R.id.menu_explore
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        binding.navigationViewMain.menu.getItem(1).isChecked = false
+    }
+
 }
