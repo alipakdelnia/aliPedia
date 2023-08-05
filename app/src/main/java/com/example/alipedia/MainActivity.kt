@@ -4,11 +4,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.example.alipedia.databinding.ActivityMainBinding
 import com.example.alipedia.fragments.*
+import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -67,7 +69,16 @@ class MainActivity : AppCompatActivity() {
                 }
                 //---------------------------
                 R.id.menu_open_web -> {
-                    Toast.makeText(this, "you are in web now", Toast.LENGTH_SHORT).show()
+
+                    Snackbar
+                        .make(binding.root , "No internet!", Snackbar.LENGTH_INDEFINITE)
+                        .setAction("Retry"){
+                            Toast.makeText(this, "cheking internet", Toast.LENGTH_SHORT).show()
+                        }
+                        .setTextColor(ContextCompat.getColor(this,android.R.color.holo_red_dark))
+                        .setBackgroundTint(ContextCompat.getColor(this,R.color.blue))
+                        .show()
+
                     binding.drawerLayoutMain.closeDrawer(GravityCompat.START)
                 }
 
