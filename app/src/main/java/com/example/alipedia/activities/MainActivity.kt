@@ -1,5 +1,6 @@
-package com.example.alipedia
+package com.example.alipedia.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -8,6 +9,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import cn.pedant.SweetAlert.SweetAlertDialog
+import com.example.alipedia.R
 import com.example.alipedia.databinding.ActivityMainBinding
 import com.example.alipedia.fragments.*
 import com.google.android.material.snackbar.Snackbar
@@ -76,7 +78,7 @@ class MainActivity : AppCompatActivity() {
                             Toast.makeText(this, "cheking internet", Toast.LENGTH_SHORT).show()
                         }
                         .setTextColor(ContextCompat.getColor(this,android.R.color.holo_red_dark))
-                        .setBackgroundTint(ContextCompat.getColor(this,R.color.blue))
+                        .setBackgroundTint(ContextCompat.getColor(this, R.color.blue))
                         .show()
 
                     binding.drawerLayoutMain.closeDrawer(GravityCompat.START)
@@ -92,7 +94,9 @@ class MainActivity : AppCompatActivity() {
             when (it.itemId) {
 
                 R.id.menu_cars -> {
-                    replaceFragment(FragmentCars())
+//                    replaceFragment(FragmentCars())
+                    val intent = Intent(this,MainActivity3::class.java)
+                    startActivity(intent)
                 }
                 R.id.menu_explore -> {
                     replaceFragment(FragmentExplore())

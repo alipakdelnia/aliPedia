@@ -1,4 +1,4 @@
-package com.example.alipedia
+package com.example.alipedia.activities
 
 
 import android.content.Intent

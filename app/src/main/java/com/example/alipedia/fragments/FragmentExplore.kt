@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.alipedia.MainActivity2
+import com.example.alipedia.activities.MainActivity2
 import com.example.alipedia.adapter.ExploreAdapter
 import com.example.alipedia.adapter.ItemEvent
 import com.example.alipedia.data.ItemPost
